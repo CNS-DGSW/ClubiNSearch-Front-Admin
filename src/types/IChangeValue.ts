@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
-import { IMemberValue } from "@/types/IMemberValue";
+import { IServerMemberValue } from "@/types/IMemberValue";
 
 interface IMember {
   title: string;
-  contents: IMemberValue[];
+  contents: IServerMemberValue[];
 }
 
 export interface IChangeValue {

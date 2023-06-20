@@ -10,15 +10,15 @@ const Modal = ({
   setMemberContentsValue: Dispatch<SetStateAction<IMemberBoxValue[]>>;
 }) => {
   const [NewMemberBox, setNewMemberBox] = useState<IMemberBoxValue>({
-    title: "",
+    state: "",
     member: [],
   });
   const AddEvaluation = () => {
-    if (NewMemberBox.title === "") {
+    if (NewMemberBox.state === "") {
       alert("값을 제대로 입력해주세요");
       return;
     }
-    if (!window.confirm(NewMemberBox.title + "의 평가과정을 추가하시겠습니까?"))
+    if (!window.confirm(NewMemberBox.state + "의 평가과정을 추가하시겠습니까?"))
       return;
     setModal(false);
     setMemberContentsValue((prev) => {
@@ -39,7 +39,7 @@ const Modal = ({
           <S.InputContent
             type="text"
             placeholder="평가 제목을 입력해주세요."
-            value={NewMemberBox.title}
+            value={NewMemberBox.state}
             onChange={(e) =>
               setNewMemberBox((prev) => {
                 return { ...prev, title: e.target.value };
