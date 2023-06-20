@@ -4,5 +4,4 @@ export interface IRecruitment {
   clubName: string;
   position: string;
   employmentType: string;
-  isActive?: boolean;
 }
