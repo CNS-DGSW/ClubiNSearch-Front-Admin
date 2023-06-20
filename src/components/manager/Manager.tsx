@@ -18,13 +18,7 @@ const Manager = () => {
   const [memberContentsValue, setMemberContentsValue] = useState<
     IMemberBoxValue[]
   >([]);
-  const ServerConnect = ({
-    Token,
-    id,
-  }: {
-    Token: string;
-    id: string | string[];
-  }) => {
+  const ServerConnect = (Token: string, id: string | string[]) => {
     let copy: IMemberBoxValue[] = [];
     API.get(`api/resume/admin/list/${id}`, {
       headers: { Authorization: `Bearer ${Token}` },
@@ -59,7 +53,7 @@ const Manager = () => {
     if (id) {
       setPageId(Number(id));
       if (!Token) return;
-      ServerConnect({ Token, id });
+      ServerConnect(Token, id);
     }
   }, [router]);
 
