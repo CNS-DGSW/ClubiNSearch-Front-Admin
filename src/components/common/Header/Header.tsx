@@ -18,14 +18,11 @@ export default function Header() {
       API.get(`api/resume/admin/list/9`, {
         headers: { Authorization: `Bearer ${Token}` },
       })
-        .then((e) => {
-          console.log(e);
-
+        .then((_) => {
           setIsActive(true);
           isSignInSetRecoilState(true);
         })
-        .catch((e) => {
-          console.log(e);
+        .catch((_) => {
           setIsActive(false);
           isSignInSetRecoilState(false);
         });
@@ -39,6 +36,7 @@ export default function Header() {
       router.push("/");
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
+      router.push("/");
     }
   };
   return (
@@ -56,7 +54,7 @@ export default function Header() {
             </S.NavItem>
             <S.NavItem>공고 작성</S.NavItem>
             {/* <S.NavItem>문의 하기</S.NavItem> */}
-            <S.NavItem>내 정보</S.NavItem>
+            {/* <S.NavItem>내 정보</S.NavItem> */}
             <S.NavItem onClick={LogOutMethod}>로그아웃</S.NavItem>
           </>
         ) : (
