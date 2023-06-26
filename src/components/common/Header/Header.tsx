@@ -36,6 +36,7 @@ export default function Header() {
     if (window.confirm("로그아웃 하시겠습니까?")) {
       setIsActive(false);
       isSignInSetRecoilState(false);
+      router.push("/");
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
     }
