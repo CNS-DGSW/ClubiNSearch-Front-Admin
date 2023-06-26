@@ -8,8 +8,6 @@ import { useEffect, useState } from "react";
 import * as S from "./index.style";
 import API from "@/util/api";
 import { recuitment } from "@/types/Recuitment";
-import { useRecoilValue } from "recoil";
-import { isSignIn } from "@/store/atom";
 
 export default function Main({
   getposts,
@@ -18,8 +16,6 @@ export default function Main({
   getposts: recuitment[];
   posi: string[];
 }) {
-  const isSignInRecoilState = useRecoilValue(isSignIn);
-
   // 한 페이지에 보여줄 게시글 개수
   const ONEPAGEPOST = 7;
   const [posts, setPosts] = useState(getposts);
