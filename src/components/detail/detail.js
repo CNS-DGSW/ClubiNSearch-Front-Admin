@@ -5,10 +5,14 @@ import Ad from "../../asset/Ad.svg";
 import md from "markdown-it";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { isSignIn } from "@/store/atom";
+import Link from "next/link";
 
 export default function Detail({ data }) {
+  const isSignInRecoilState = useRecoilValue(isSignIn);
   const router = useRouter();
-  const [pageId, setPageID] = useState(null);
+  const [, setPageID] = useState(null);
   const { title, clubName, position, detailContent, employmentType } = data;
 
   useEffect(() => {
@@ -51,7 +55,13 @@ export default function Detail({ data }) {
             <S.Introduce>{position}</S.Introduce>
           </S.EachBox>
 
-          <S.ApplyBtn>지원하기</S.ApplyBtn>
+          <S.ApplyBtn>
+            {isSignInRecoilState ? (
+              <>지원하기</>
+            ) : (
+              <S.PlzLogin href={"/signin"}>로그인 해주세요 ㅜㅜ</S.PlzLogin>
+            )}
+          </S.ApplyBtn>
         </S.Box>
       </S.ContentWrapper>
 

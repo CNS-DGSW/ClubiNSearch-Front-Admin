@@ -241,20 +241,3 @@ export const Footer = styled.footer`
 
   width: 100%;
 `;
-
-export const PlzLogin = styled(Link)`
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-align: center;
-  margin: 5rem 0rem;
-  padding: 1rem;
-  letter-spacing: 0.1rem;
-  color: #8c8c8c;
-  text-decoration: none;
-  &:hover {
-    color: #6e6e6e;
-  }
-  &:active {
-    color: #555555;
-  }
-`;

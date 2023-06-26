@@ -160,13 +160,7 @@ export default function Main({
           </S.ChoosePositionHow>
         </S.SearchBox>
 
-        <S.PostWrapper>
-          {isSignInRecoilState ? (
-            ShowPosts
-          ) : (
-            <S.PlzLogin href={"/signin"}>로그인 해주세용 ㅜㅜ</S.PlzLogin>
-          )}
-        </S.PostWrapper>
+        <S.PostWrapper>{ShowPosts}</S.PostWrapper>
       </S.ContentWrapperWithoutPagination>
 
       <S.StyledReactPaginate
