@@ -3,15 +3,11 @@ import Ask from "../common/Ask/Ask";
 import Image from "next/image";
 import Ad from "../../asset/Ad.svg";
 import SearchIcon from "../../asset/SearchIcon.svg";
-import fs from "fs";
-import matter from "gray-matter";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import ReactPaginate from "react-paginate";
+import { useEffect, useState } from "react";
 import * as S from "./index.style";
-import axios from "axios";
 import API from "@/util/api";
-import { recuitment, EmploymentType } from "@/types/Recuitment";
+import { recuitment } from "@/types/Recuitment";
 
 export default function Main({
   getposts,
@@ -24,9 +20,7 @@ export default function Main({
   const ONEPAGEPOST = 7;
   const [posts, setPosts] = useState(getposts);
   // 전체 페이지 수
-  const [totalPages, setTotalPages] = useState(
-    Math.ceil(posts.length / ONEPAGEPOST)
-  );
+  const [totalPages] = useState(Math.ceil(posts.length / ONEPAGEPOST));
   const [itemOffset, setItemOffset] = useState(0);
   // 게시글 제목, 포지션, 채용 형태 검색에 사용
   const [search, setSearch] = useState({
@@ -154,9 +148,9 @@ export default function Main({
             }
           >
             <option value="">채용 형태</option>
-            {employmentTypeOption.map((e, index) => (
-              <option value={e} key={e}>
-                {e}
+            {employmentTypeOption.map((value, index) => (
+              <option value={value} key={index}>
+                {value}
               </option>
             ))}
           </S.ChoosePositionHow>
@@ -174,7 +168,7 @@ export default function Main({
         pageClassName="pagePaginate"
       ></S.StyledReactPaginate>
 
-      <Ask />
+      {/* <Ask /> */}
     </S.Wrapper>
   );
 }

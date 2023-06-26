@@ -10,8 +10,13 @@ import NullMember from "./nullMember/NullMember";
 import API from "@/util/api";
 import { useRouter } from "next/router";
 import Title from "./contentsBox/Title";
+import { useRecoilValue } from "recoil";
+import { isSignIn } from "@/store/atom";
+import { useDidMountEffect } from "@/hooks/useDidMountEffect";
 
 const Manager = () => {
+  const isSignInRecoilState = useRecoilValue(isSignIn);
+
   const router = useRouter();
   const [pageId, setPageId] = useState<number>(0);
   const [sidebarValue, setSidebarValue] = useState<IRecruitment[]>([]);
@@ -34,17 +39,22 @@ const Manager = () => {
       });
   };
 
-  useEffect(() => {
-    API.get(`api/recruitment/`)
-      .then((value) => {
-        let arr: IRecruitment[] = [];
-        let copy = [...value.data];
-        copy.map((val) => {
-          arr.push({ ...val, isActive: false });
-        });
-        setSidebarValue(arr);
-      })
-      .catch((_) => {});
+  useDidMountEffect(() => {
+    if (!isSignInRecoilState) {
+      alert("로그인 해주세요!");
+      router.push("/");
+    } else {
+      API.get(`api/recruitment/`)
+        .then((value) => {
+          let arr: IRecruitment[] = [];
+          let copy = [...value.data];
+          copy.map((val) => {
+            arr.push({ ...val, isActive: false });
+          });
+          setSidebarValue(arr);
+        })
+        .catch((_) => {});
+    }
   }, []);
 
   useEffect(() => {

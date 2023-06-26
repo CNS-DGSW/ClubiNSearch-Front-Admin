@@ -1,18 +1,18 @@
 import * as S from "./detail.style";
 import Image from "next/image";
-import Link from "next/link";
 import Ask from "../common/Ask/Ask";
 import Ad from "../../asset/Ad.svg";
-import fs from "fs";
-import matter from "gray-matter";
 import md from "markdown-it";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import {CGS} from "./detail.style"
+import { useRecoilValue } from "recoil";
+import { isSignIn } from "@/store/atom";
+import Link from "next/link";
 
 export default function Detail({ data }) {
+  const isSignInRecoilState = useRecoilValue(isSignIn);
   const router = useRouter();
-  const [pageId, setPageID] = useState(null);
+  const [pageid, setPageID] = useState(null);
   const { title, clubName, position, detailContent, employmentType } = data;
 
   useEffect(() => {
@@ -55,12 +55,13 @@ export default function Detail({ data }) {
             <S.Introduce>{position}</S.Introduce>
           </S.EachBox>
 
-          <S.ApplyLink href={`/apply/${pageId}`}>
-            <S.ApplyBtn>
-              지원하기
-            </S.ApplyBtn>
-          </S.ApplyLink>
-
+          <S.ApplyBtn>
+            {isSignInRecoilState ? (
+              <S.PlzLogin href={`/manager/${pageid}`}>지원자 보기</S.PlzLogin>
+            ) : (
+              <S.PlzLogin href={"/signin"}>로그인 해주세요 ㅜㅜ</S.PlzLogin>
+            )}
+          </S.ApplyBtn>
         </S.Box>
       </S.ContentWrapper>
 

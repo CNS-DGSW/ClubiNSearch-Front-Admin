@@ -69,6 +69,6 @@ export const FooterNumOfPeople = styled.div`
 `;
 
 export const MemberContainer = styled.div`
-  height: 48rem;
+  height: 90%;
   overflow: auto;
 `;
