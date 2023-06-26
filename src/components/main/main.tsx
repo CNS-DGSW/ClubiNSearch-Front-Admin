@@ -168,7 +168,7 @@ export default function Main({
         pageClassName="pagePaginate"
       ></S.StyledReactPaginate>
 
-      <Ask />
+      {/* <Ask /> */}
     </S.Wrapper>
   );
 }

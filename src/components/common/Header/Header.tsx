@@ -55,7 +55,7 @@ export default function Header() {
               <S.StyledLink href="/">채용 공고</S.StyledLink>
             </S.NavItem>
             <S.NavItem>공고 작성</S.NavItem>
-            <S.NavItem>문의 하기</S.NavItem>
+            {/* <S.NavItem>문의 하기</S.NavItem> */}
             <S.NavItem>내 정보</S.NavItem>
             <S.NavItem onClick={LogOutMethod}>로그아웃</S.NavItem>
           </>
@@ -64,7 +64,7 @@ export default function Header() {
             <S.NavItem>
               <S.StyledLink href="/">채용 공고</S.StyledLink>
             </S.NavItem>
-            <S.NavItem>문의 하기</S.NavItem>
+            {/* <S.NavItem>문의 하기</S.NavItem> */}
             <S.NavItem>
               <S.StyledLink href="/signin">관리자 로그인</S.StyledLink>
             </S.NavItem>
