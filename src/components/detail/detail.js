@@ -1,14 +1,10 @@
 import * as S from "./detail.style";
 import Image from "next/image";
-import Link from "next/link";
 import Ask from "../common/Ask/Ask";
 import Ad from "../../asset/Ad.svg";
-import fs from "fs";
-import matter from "gray-matter";
 import md from "markdown-it";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import {CGS} from "./detail.style"
 
 export default function Detail({ data }) {
   const router = useRouter();
@@ -55,12 +51,7 @@ export default function Detail({ data }) {
             <S.Introduce>{position}</S.Introduce>
           </S.EachBox>
 
-          <S.ApplyLink href={`/apply/${pageId}`}>
-            <S.ApplyBtn>
-              지원하기
-            </S.ApplyBtn>
-          </S.ApplyLink>
-
+          <S.ApplyBtn>지원하기</S.ApplyBtn>
         </S.Box>
       </S.ContentWrapper>
 
