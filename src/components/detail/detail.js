@@ -12,7 +12,7 @@ import Link from "next/link";
 export default function Detail({ data }) {
   const isSignInRecoilState = useRecoilValue(isSignIn);
   const router = useRouter();
-  const [, setPageID] = useState(null);
+  const [pageid, setPageID] = useState(null);
   const { title, clubName, position, detailContent, employmentType } = data;
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function Detail({ data }) {
 
           <S.ApplyBtn>
             {isSignInRecoilState ? (
-              <>지원하기</>
+              <S.PlzLogin href={`/manager/${pageid}`}>지원자 보기</S.PlzLogin>
             ) : (
               <S.PlzLogin href={"/signin"}>로그인 해주세요 ㅜㅜ</S.PlzLogin>
             )}
