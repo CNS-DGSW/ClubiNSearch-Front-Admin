@@ -5,8 +5,11 @@ import Link from "next/link";
 import API from "@/util/api";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useSetRecoilState } from "recoil";
+import { isSignIn } from "@/store/atom";
 
 export default function Header() {
+  const isSignInSetRecoilState = useSetRecoilState(isSignIn);
   const router = useRouter();
   const [isActive, setIsActive] = useState<boolean>(false);
   useEffect(() => {
@@ -19,10 +22,12 @@ export default function Header() {
           console.log(e);
 
           setIsActive(true);
+          isSignInSetRecoilState(true);
         })
         .catch((e) => {
           console.log(e);
           setIsActive(false);
+          isSignInSetRecoilState(false);
         });
     }
   }, [router]);
@@ -30,6 +35,7 @@ export default function Header() {
   const LogOutMethod = () => {
     if (window.confirm("로그아웃 하시겠습니까?")) {
       setIsActive(false);
+      isSignInSetRecoilState(false);
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
     }

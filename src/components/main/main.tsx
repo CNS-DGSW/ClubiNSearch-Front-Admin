@@ -3,15 +3,13 @@ import Ask from "../common/Ask/Ask";
 import Image from "next/image";
 import Ad from "../../asset/Ad.svg";
 import SearchIcon from "../../asset/SearchIcon.svg";
-import fs from "fs";
-import matter from "gray-matter";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import ReactPaginate from "react-paginate";
+import { useEffect, useState } from "react";
 import * as S from "./index.style";
-import axios from "axios";
 import API from "@/util/api";
-import { recuitment, EmploymentType } from "@/types/Recuitment";
+import { recuitment } from "@/types/Recuitment";
+import { useRecoilValue } from "recoil";
+import { isSignIn } from "@/store/atom";
 
 export default function Main({
   getposts,
@@ -20,13 +18,13 @@ export default function Main({
   getposts: recuitment[];
   posi: string[];
 }) {
+  const isSignInRecoilState = useRecoilValue(isSignIn);
+
   // 한 페이지에 보여줄 게시글 개수
   const ONEPAGEPOST = 7;
   const [posts, setPosts] = useState(getposts);
   // 전체 페이지 수
-  const [totalPages, setTotalPages] = useState(
-    Math.ceil(posts.length / ONEPAGEPOST)
-  );
+  const [totalPages] = useState(Math.ceil(posts.length / ONEPAGEPOST));
   const [itemOffset, setItemOffset] = useState(0);
   // 게시글 제목, 포지션, 채용 형태 검색에 사용
   const [search, setSearch] = useState({
@@ -154,15 +152,21 @@ export default function Main({
             }
           >
             <option value="">채용 형태</option>
-            {employmentTypeOption.map((e, index) => (
-              <option value={e} key={e}>
-                {e}
+            {employmentTypeOption.map((value, index) => (
+              <option value={value} key={index}>
+                {value}
               </option>
             ))}
           </S.ChoosePositionHow>
         </S.SearchBox>
 
-        <S.PostWrapper>{ShowPosts}</S.PostWrapper>
+        <S.PostWrapper>
+          {isSignInRecoilState ? (
+            ShowPosts
+          ) : (
+            <S.PlzLogin href={"/signin"}>로그인 해주세용 ㅜㅜ</S.PlzLogin>
+          )}
+        </S.PostWrapper>
       </S.ContentWrapperWithoutPagination>
 
       <S.StyledReactPaginate
