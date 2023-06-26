@@ -106,8 +106,6 @@ export const ApplyBtn = styled.button`
   line-height: 0.7rem;
 `;
 
-export const ApplyLink = styled(Link)``;
-
 export const PlzLogin = styled(Link)`
   color: #fff;
   font-size: 0.8rem;
