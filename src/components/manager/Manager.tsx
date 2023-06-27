@@ -43,18 +43,20 @@ const Manager = () => {
     if (!isSignInRecoilState) {
       alert("로그인 해주세요!");
       router.push("/");
-    } else {
-      API.get(`api/recruitment/`)
-        .then((value) => {
-          let arr: IRecruitment[] = [];
-          let copy = [...value.data];
-          copy.map((val) => {
-            arr.push({ ...val, isActive: false });
-          });
-          setSidebarValue(arr);
-        })
-        .catch((_) => {});
     }
+  }, []);
+
+  useEffect(() => {
+    API.get(`api/recruitment/`)
+      .then((value) => {
+        let arr: IRecruitment[] = [];
+        let copy = [...value.data];
+        copy.map((val) => {
+          arr.push({ ...val });
+        });
+        setSidebarValue(arr);
+      })
+      .catch((_) => {});
   }, []);
 
   useEffect(() => {
