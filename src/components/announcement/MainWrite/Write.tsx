@@ -46,8 +46,6 @@ const Write = () => {
       isOpen: true,
     };
 
-    console.log("dfdfdf", payload);
-
     const Token: string | null = localStorage.getItem("accessToken");
     await API.post(
       "/api/recruitment/create",
@@ -67,13 +65,10 @@ const Write = () => {
         },
       }
     )
-      .then((e) => {
-        console.log(e);
+      .then((_) => {
         alert("작성하신 공고가 게시되었습니다.");
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((_) => {});
   };
 
   return (

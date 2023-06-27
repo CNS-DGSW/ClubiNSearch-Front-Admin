@@ -20,7 +20,6 @@ const ClubName = () => {
         <option value="두카미">두카미</option>
         <option value="3D">3D</option>
         <option value="ALT">ALT</option>
-        <option value="기타"></option>
       </S.clubNameSelect>
     </div>
   );

@@ -35,15 +35,12 @@ export default function Main({
     // 세 개 중에 값이 하나가 바뀌면 나머지에 다 undefined가 들어가는데 왜 그런지 모르겠어서 일단 if문으로 처리해둠
     if (search.title === undefined) {
       search.title = "";
-      console.log(1);
     }
     if (search.position === undefined) {
       search.position = "";
-      console.log(2);
     }
     if (search.employmentType === undefined) {
       search.employmentType = "";
-      console.log(3);
     }
 
     let query =

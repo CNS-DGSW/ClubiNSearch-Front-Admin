@@ -30,11 +30,7 @@ const ChangeServerMember = async (id: string, state: string) => {
         headers: { Authorization: `Bearer ${Token}` },
       }
     );
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-  console.log(state, id);
+  } catch (_) {}
 };
 
 const DeleteValue = ({
