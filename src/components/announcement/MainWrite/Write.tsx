@@ -13,6 +13,7 @@ import {
 import { useRecoilState } from "recoil";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import remarkGfm from "remark-gfm";
+import breaks from "remark-breaks";
 
 const Write = () => {
   const [isEditMarkdown, setIsEditMarkdown] = useState<boolean>(true);
@@ -116,10 +117,13 @@ const Write = () => {
             ) : (
               <S.PreviewMarkdown>
                 <ReactMarkdown
+                  components={{
+                    ul: ({ ...props }) => <div>{props.children}</div>,
+                  }}
                   children={
                     detailContent ? detailContent : "표시할 내용이 없습니다."
                   }
-                  remarkPlugins={[remarkGfm]}
+                  remarkPlugins={[remarkGfm, breaks]}
                 />
               </S.PreviewMarkdown>
             )}
