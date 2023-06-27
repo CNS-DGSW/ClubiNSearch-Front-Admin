@@ -21,7 +21,7 @@ const ChangeServerMember = async (id: string, state: string) => {
     const Token: string | null = localStorage.getItem("accessToken");
     if (!Token) return;
     const data = await API.post(
-      `api/resume/admin/state`,
+      `api/admin/resume/state`,
       {
         id: id,
         state: state,
@@ -61,7 +61,7 @@ const ChangeValue = async (props: IChangeValue) => {
   const Token: string | null = localStorage.getItem("accessToken");
   let copy: IMemberBoxValue[] = [];
   await API.get(
-    `api/resume/admin/list/${pageId[location.href.split("/").length - 1]}`,
+    `api/admin/resume/list/${pageId[location.href.split("/").length - 1]}`,
     {
       headers: { Authorization: `Bearer ${Token}` },
     }

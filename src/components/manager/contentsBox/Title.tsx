@@ -29,7 +29,7 @@ const Title = ({
 
   const ServerConnect = (Token: string, id: number) => {
     let copy: IMemberBoxValue[] = [];
-    API.get(`api/resume/admin/list/${id}`, {
+    API.get(`api/admin/resume/list/${id}`, {
       headers: { Authorization: `Bearer ${Token}` },
     })
       .then((e) => {
