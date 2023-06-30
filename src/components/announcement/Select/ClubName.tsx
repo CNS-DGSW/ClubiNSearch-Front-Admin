@@ -16,9 +16,9 @@ const ClubName = () => {
       <S.clubNameSelect value={clubName} onChange={handleClubNameChange}>
         <option>소속 동아리를 선택해주세요.</option>
         <option value="CNS">CNS</option>
-        <option value="B1nd">B1nd</option>
-        <option value="두카미">두카미</option>
-        <option value="3D">3D</option>
+        <option value="B1ND">B1nd</option>
+        <option value="DUCAMI">두카미</option>
+        <option value="삼디">3D</option>
         <option value="ALT">ALT</option>
       </S.clubNameSelect>
     </div>

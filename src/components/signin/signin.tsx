@@ -26,7 +26,7 @@ const signin = () => {
         localStorage.setItem("refreshToken", res.data.refreshToken);
 
         alert("로그인 성공");
-        router.push('/')
+        router.push("/");
       })
       .catch((err) => {
         console.error(err);
@@ -52,6 +52,7 @@ const signin = () => {
           <S.InputWrapper>
             <S.InputLabel>비밀번호</S.InputLabel>
             <S.Input
+              type="password"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}

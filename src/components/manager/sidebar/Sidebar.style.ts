@@ -17,7 +17,6 @@ export const MainContainer = styled.nav`
 
 export const TitleContainer = styled.nav`
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 80%;
   margin: 0rem auto;

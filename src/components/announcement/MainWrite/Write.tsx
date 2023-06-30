@@ -14,8 +14,10 @@ import { useRecoilState } from "recoil";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import remarkGfm from "remark-gfm";
 import breaks from "remark-breaks";
+import { useRouter } from "next/router";
 
 const Write = () => {
+  const router = useRouter();
   const [isEditMarkdown, setIsEditMarkdown] = useState<boolean>(true);
   const [clubName] = useRecoilState<string>(clubNameAtom);
   const [employmentType] = useRecoilState<string>(employmentTypeAtom);
@@ -68,6 +70,7 @@ const Write = () => {
     )
       .then((_) => {
         alert("작성하신 공고가 게시되었습니다.");
+        router.push("/");
       })
       .catch((_) => {});
   };
