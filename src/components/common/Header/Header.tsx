@@ -18,15 +18,11 @@ export default function Header() {
       API.get(`/api/token/`, {
         headers: { Authorization: `Bearer ${Token}` },
       })
-        .then((e) => {
-          console.log(e);
-
+        .then((_) => {
           setIsActive(true);
           isSignInSetRecoilState(true);
         })
-        .catch((e) => {
-          console.log(e);
-
+        .catch((_) => {
           setIsActive(false);
           isSignInSetRecoilState(false);
         });
