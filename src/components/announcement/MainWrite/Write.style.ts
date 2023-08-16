@@ -7,25 +7,16 @@ const BasicColor4 = "#666666";
 const BasicColor5 = "#D9D9D9";
 
 export const mainContainer = styled.div`
-  margin: auto;
+  margin-top: 5%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: ${BasicColor3};
   padding: 2rem;
 `;
 
-export const mainTitle = styled.h4`
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-
-  color: ${BasicColor4};
-`;
-
 export const content = styled.div`
   display: flex;
-  padding-top: 6%;
-  padding-bottom: 1%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 `;
 
 export const contentTitle = styled.h4`
@@ -52,6 +43,7 @@ export const titleInput = styled.input`
   width: 100%;
   outline: none;
   height: 30px;
+  margin-bottom: 5%;
 `;
 
 export const mainTextarea = styled.textarea`
@@ -67,7 +59,7 @@ export const mainTextarea = styled.textarea`
 `;
 
 export const MarkdownViewWrap = styled.div`
-  padding: 1%;
+  padding: 3%;
   background-color: ${BasicColor3};
   border: none;
   border-top: 1px solid ${BasicColor5};
@@ -97,13 +89,14 @@ export const subButton = styled.button`
   border: none;
   color: white;
   border-radius: 5px;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   text-overflow: auto;
 `;
 
 export const EditTextareaForm = styled.div`
   width: 100%;
   border: 1px solid ${BasicColor5};
+  margin-bottom: 5%;
 `;
 
 interface IIsEdit {

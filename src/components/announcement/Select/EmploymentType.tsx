@@ -18,7 +18,7 @@ const EmploymentType = () => {
         value={employmentType}
         onChange={handleEmploymentTypeChange}
       >
-        <option>채용 직급을 선택해주세요.</option>
+        <option>채용 직급을 선택해주세요</option>
         <option value="INTERN">인턴</option>
         <option value="REGULAR">정규직</option>
       </S.employmentTypeSelect>

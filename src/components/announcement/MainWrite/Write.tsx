@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import * as S from "./Write.style";
 import API from "@/util/api";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import {
   clubNameAtom,
   titleAtom,
@@ -9,6 +11,7 @@ import {
   endDateAtom,
   employmentTypeAtom,
   detailContentAtom,
+  isOpenAtom,
 } from "@/store/WriteAtom";
 import { useRecoilState } from "recoil";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
@@ -27,6 +30,7 @@ const Write = () => {
   const [title, setTitle] = useRecoilState<string>(titleAtom);
   const [detailContent, setDetailContent] =
     useRecoilState<string>(detailContentAtom);
+  const [isOpen, setIsOpen] = useRecoilState<boolean>(isOpenAtom);
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -38,6 +42,8 @@ const Write = () => {
   };
 
   const handleSubmit = async () => {
+    setIsOpen(true);
+
     const payload = {
       clubName: clubName,
       title: title,
@@ -46,7 +52,7 @@ const Write = () => {
       detailContent: detailContent,
       startDate: startDate,
       endDate: endDate,
-      isOpen: true,
+      isOpen: isOpen,
     };
 
     const Token: string | null = localStorage.getItem("accessToken");
@@ -60,7 +66,7 @@ const Write = () => {
         detailContent: detailContent,
         startDate: startDate,
         endDate: endDate,
-        isOpen: true,
+        isOpen: isOpen,
       },
       {
         headers: {
@@ -72,13 +78,14 @@ const Write = () => {
         alert("작성하신 공고가 게시되었습니다.");
         router.push("/");
       })
-      .catch((_) => {});
+      .catch((_) => {
+        alert("모든 필드를 채워주세요.");
+      });
   };
 
   return (
     <>
       <S.mainContainer>
-        <S.mainTitle>작성</S.mainTitle>
         <S.content>
           <S.contentTitle>제목</S.contentTitle>
           <S.contentPoint>*</S.contentPoint>
@@ -90,6 +97,18 @@ const Write = () => {
           value={title}
           onChange={handleTitleChange}
         ></S.titleInput>
+        {isOpen && title == "" && (
+          <div
+            style={{
+              color: "red",
+              fontSize: "13px",
+              marginTop: "-4%",
+              marginBottom: "1.3%",
+            }}
+          >
+            *공지사항 제목을 입력해주세요.*
+          </div>
+        )}
         <S.content>
           <S.contentTitle>내용</S.contentTitle>
           <S.contentPoint>*</S.contentPoint>
@@ -132,6 +151,18 @@ const Write = () => {
             )}
           </S.MarkdownViewWrap>
         </S.EditTextareaForm>
+        {isOpen && detailContent == "" && (
+          <div
+            style={{
+              color: "red",
+              fontSize: "13px",
+              marginTop: "-4%",
+              marginBottom: "1.3%",
+            }}
+          >
+            *공지사항 내용을 입력해주세요.*
+          </div>
+        )}
       </S.mainContainer>
       <S.subButton onClick={handleSubmit}>게시하기</S.subButton>
     </>
