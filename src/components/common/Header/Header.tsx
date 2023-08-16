@@ -15,14 +15,18 @@ export default function Header() {
   useEffect(() => {
     const Token: string | null = localStorage.getItem("accessToken");
     if (Token) {
-      API.get(`api/admin/resume/list/9`, {
+      API.get(`/api/token/`, {
         headers: { Authorization: `Bearer ${Token}` },
       })
-        .then((_) => {
+        .then((e) => {
+          console.log(e);
+
           setIsActive(true);
           isSignInSetRecoilState(true);
         })
-        .catch((_) => {
+        .catch((e) => {
+          console.log(e);
+
           setIsActive(false);
           isSignInSetRecoilState(false);
         });
