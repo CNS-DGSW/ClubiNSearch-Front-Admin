@@ -72,7 +72,11 @@ export const selectContainer = styled.div`
 export const dateSelect = styled.input`
   padding-left: 2%;
   background: ${BasicColor3};
-  border: 1px solid ${(props) => (props.isOpen ? "red" : "#d9d9d9")};
+  border: 1px solid
+    ${(props) =>
+      props.isOpen && (props.startDate == "" || props.endDate == "")
+        ? "red"
+        : "#d9d9d9"};
   border-radius: 5px;
   width: 43.5%;
   height: 38px;

@@ -18,6 +18,7 @@ const ClubName = () => {
         value={clubName}
         onChange={handleClubNameChange}
         isOpen={isOpen}
+        clubName={clubName}
       >
         <option>소속 동아리를 선택해주세요</option>
         <option value="CNS">CNS</option>

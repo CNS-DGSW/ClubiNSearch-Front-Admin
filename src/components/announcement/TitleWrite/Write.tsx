@@ -103,6 +103,7 @@ const Write = () => {
           <S.selectContainer>
             <S.dateSelect
               isOpen={isOpen}
+              startDate={startDate}
               type="date"
               name="startDate"
               value={startDate}
@@ -111,6 +112,7 @@ const Write = () => {
             <S.dateSign> ~ </S.dateSign>
             <S.dateSelect
               isOpen={isOpen}
+              endDate={endDate}
               type="date"
               name="endDate"
               value={endDate}

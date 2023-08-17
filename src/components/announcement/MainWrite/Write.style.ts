@@ -39,7 +39,8 @@ export const titleInput = styled.input`
   padding-left: 1%;
   background-color: ${BasicColor3};
   border: none;
-  border-bottom: 1px solid ${(props) => (props.isOpen ? "red" : "#d9d9d9")};
+  border-bottom: 1px solid
+    ${(props) => (props.isOpen && props.title == "" ? "red" : "#d9d9d9")};
   width: 100%;
   outline: none;
   height: 30px;
@@ -62,7 +63,7 @@ export const MarkdownViewWrap = styled.div`
   padding: 3%;
   background-color: ${BasicColor3};
   border: none;
-  border-top: 1px solid ${(props) => (props.isOpen ? "red" : "#d9d9d9")};
+  ${(props) => (props.isOpen && props.detailContent == "" ? "red" : "#d9d9d9")};
   color: #666;
   width: 94%;
   height: 20rem;
@@ -95,7 +96,9 @@ export const subButton = styled.button`
 
 export const EditTextareaForm = styled.div`
   width: 100%;
-  border: 1px solid ${(props) => (props.isOpen ? "red" : "#d9d9d9")};
+  border: 1px solid
+    ${(props) =>
+      props.isOpen && props.detailContent == "" ? "red" : "#d9d9d9"};
   margin-bottom: 5%;
 `;
 

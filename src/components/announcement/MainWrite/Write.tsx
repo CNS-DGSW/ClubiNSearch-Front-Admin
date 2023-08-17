@@ -93,6 +93,7 @@ const Write = () => {
         </S.content>
         <S.titleInput
           isOpen={isOpen}
+          title={title}
           type="text"
           name="title"
           placeholder="제목을 입력해주세요."
@@ -115,7 +116,7 @@ const Write = () => {
           <S.contentTitle>내용</S.contentTitle>
           <S.contentPoint>*</S.contentPoint>
         </S.content>
-        <S.EditTextareaForm isOpen={isOpen}>
+        <S.EditTextareaForm isOpen={isOpen} detailContent={detailContent}>
           <>
             <S.StatusButton
               isEdit={isEditMarkdown}
@@ -130,7 +131,7 @@ const Write = () => {
               Preview
             </S.StatusButton>
           </>
-          <S.MarkdownViewWrap isOpen={isOpen}>
+          <S.MarkdownViewWrap isOpen={isOpen} detailContent={detailContent}>
             {isEditMarkdown ? (
               <S.mainTextarea
                 placeholder="내용을 입력해주세요. (기본 마크다운 문법 사용가능)"

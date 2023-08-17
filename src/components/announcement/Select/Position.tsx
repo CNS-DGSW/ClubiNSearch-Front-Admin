@@ -18,6 +18,7 @@ const Position = () => {
         value={position}
         onChange={handlePositionChange}
         isOpen={isOpen}
+        position={position}
       >
         <option>포지션을 선택해주세요</option>
         <option value="Front-End">Front-End</option>

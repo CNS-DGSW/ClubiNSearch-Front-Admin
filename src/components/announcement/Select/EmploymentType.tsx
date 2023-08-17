@@ -17,6 +17,7 @@ const EmploymentType = () => {
     <div>
       <S.employmentTypeSelect
         isOpen={isOpen}
+        employmentType={employmentType}
         value={employmentType}
         onChange={handleEmploymentTypeChange}
       >
