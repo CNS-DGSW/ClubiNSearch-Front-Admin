@@ -14,7 +14,7 @@ const Position = () => {
   return (
     <div>
       <S.positionSelect value={position} onChange={handlePositionChange}>
-        <option>포지션을 선택해주세요.</option>
+        <option>포지션을 선택해주세요</option>
         <option value="Front-End">Front-End</option>
         <option value="Back-End">Back-End</option>
         <option value="Android">Android</option>

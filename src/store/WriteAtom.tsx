@@ -35,7 +35,7 @@ export const detailContentAtom = atom<string>({
   default: "",
 });
 
-export const isOpen = atom<boolean>({
-  key: "isOpen",
-  default: true,
+export const isOpenAtom = atom<boolean>({
+  key: "isOpenAtom",
+  default: false,
 });

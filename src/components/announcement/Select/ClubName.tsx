@@ -14,7 +14,7 @@ const ClubName = () => {
   return (
     <div>
       <S.clubNameSelect value={clubName} onChange={handleClubNameChange}>
-        <option>소속 동아리를 선택해주세요.</option>
+        <option>소속 동아리를 선택해주세요</option>
         <option value="CNS">CNS</option>
         <option value="B1ND">B1nd</option>
         <option value="DUCAMI">두카미</option>
