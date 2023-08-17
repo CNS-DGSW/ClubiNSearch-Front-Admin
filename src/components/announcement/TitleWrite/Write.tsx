@@ -56,7 +56,7 @@ const Write = () => {
                 marginBottom: "-3.4%",
               }}
             >
-              *소속 동아리를 선택해주세요.*
+              *필수 선택 항목입니다.*
             </div>
           )}
 
@@ -74,7 +74,7 @@ const Write = () => {
                 marginBottom: "-3.4%",
               }}
             >
-              *채용 직급을 선택해주세요.*
+              *필수 선택 항목입니다.*
             </div>
           )}
 
@@ -92,7 +92,7 @@ const Write = () => {
                 marginBottom: "-3.4%",
               }}
             >
-              *포지션을 선택해주세요.*
+              *필수 선택 항목입니다.*
             </div>
           )}
 
@@ -102,6 +102,7 @@ const Write = () => {
           </S.content>
           <S.selectContainer>
             <S.dateSelect
+              isOpen={isOpen}
               type="date"
               name="startDate"
               value={startDate}
@@ -109,6 +110,7 @@ const Write = () => {
             ></S.dateSelect>
             <S.dateSign> ~ </S.dateSign>
             <S.dateSelect
+              isOpen={isOpen}
               type="date"
               name="endDate"
               value={endDate}
@@ -124,7 +126,7 @@ const Write = () => {
                 marginBottom: "-3.4%",
               }}
             >
-              *채용시작 기간을 선택해주세요.*
+              *필수 선택 항목입니다.*
             </div>
           )}
           {isOpen && endDate == "" && (
@@ -137,7 +139,7 @@ const Write = () => {
                 marginBottom: "-3.4%",
               }}
             >
-              *채용종료 기간을 선택해주세요.*
+              *필수 선택 항목입니다.*
             </div>
           )}
         </S.titleContent>

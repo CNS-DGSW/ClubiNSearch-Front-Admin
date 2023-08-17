@@ -4,7 +4,7 @@ export const positionSelect = styled.select`
   padding-left: 1%;
   width: 95%;
   height: 38px;
-  border-color: #d9d9d9;
+  border-color: ${(props) => (props.isOpen ? "red" : "#d9d9d9")};
   border-radius: 5px;
   background: #ffffff;
 `;

@@ -80,6 +80,7 @@ const Write = () => {
       })
       .catch((_) => {
         alert("모든 필드를 채워주세요.");
+        window.scrollTo(0, 0);
       });
   };
 
@@ -91,6 +92,7 @@ const Write = () => {
           <S.contentPoint>*</S.contentPoint>
         </S.content>
         <S.titleInput
+          isOpen={isOpen}
           type="text"
           name="title"
           placeholder="제목을 입력해주세요."
@@ -106,14 +108,14 @@ const Write = () => {
               marginBottom: "1.3%",
             }}
           >
-            *공지사항 제목을 입력해주세요.*
+            *필수 입력 항목입니다.*
           </div>
         )}
         <S.content>
           <S.contentTitle>내용</S.contentTitle>
           <S.contentPoint>*</S.contentPoint>
         </S.content>
-        <S.EditTextareaForm>
+        <S.EditTextareaForm isOpen={isOpen}>
           <>
             <S.StatusButton
               isEdit={isEditMarkdown}
@@ -128,7 +130,7 @@ const Write = () => {
               Preview
             </S.StatusButton>
           </>
-          <S.MarkdownViewWrap>
+          <S.MarkdownViewWrap isOpen={isOpen}>
             {isEditMarkdown ? (
               <S.mainTextarea
                 placeholder="내용을 입력해주세요. (기본 마크다운 문법 사용가능)"
@@ -160,7 +162,7 @@ const Write = () => {
               marginBottom: "1.3%",
             }}
           >
-            *공지사항 내용을 입력해주세요.*
+            *필수 입력 항목입니다.*
           </div>
         )}
       </S.mainContainer>

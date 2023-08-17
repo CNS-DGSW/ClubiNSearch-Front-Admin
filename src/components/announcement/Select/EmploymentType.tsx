@@ -1,11 +1,12 @@
 import React from "react";
 import * as S from "./EmploymentType.style";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
-import { employmentTypeAtom } from "@/store/WriteAtom";
+import { isOpenAtom, employmentTypeAtom } from "@/store/WriteAtom";
 
 const EmploymentType = () => {
   const [employmentType, setEmploymentType] =
     useRecoilState(employmentTypeAtom);
+  const [isOpen, setIsOpen] = useRecoilState<boolean>(isOpenAtom);
 
   const handleEmploymentTypeChange = (
     event: React.ChangeEvent<HTMLSelectElement>
@@ -15,6 +16,7 @@ const EmploymentType = () => {
   return (
     <div>
       <S.employmentTypeSelect
+        isOpen={isOpen}
         value={employmentType}
         onChange={handleEmploymentTypeChange}
       >
