@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Ipayload } from "../Ipaylod";
 
 const BasicColor1 = "#394050";
 const BasicColor2 = "#1556F7";
@@ -73,7 +74,7 @@ export const dateSelect = styled.input`
   padding-left: 2%;
   background: ${BasicColor3};
   border: 1px solid
-    ${(props) =>
+    ${(props: Ipayload) =>
       props.isOpen && (props.startDate == "" || props.endDate == "")
         ? "red"
         : "#d9d9d9"};
