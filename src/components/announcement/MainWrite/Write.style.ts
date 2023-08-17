@@ -6,6 +6,17 @@ const BasicColor3 = "#F9FAFB";
 const BasicColor4 = "#666666";
 const BasicColor5 = "#D9D9D9";
 
+type Ipayload = {
+  clubName?: string;
+  title?: string;
+  position?: string;
+  employmentType?: string;
+  detailContent?: string;
+  startDate?: string;
+  endDate?: string;
+  isOpen: boolean;
+};
+
 export const mainContainer = styled.div`
   margin-top: 5%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -40,7 +51,8 @@ export const titleInput = styled.input`
   background-color: ${BasicColor3};
   border: none;
   border-bottom: 1px solid
-    ${(props) => (props.isOpen && props.title == "" ? "red" : "#d9d9d9")};
+    ${(props: Ipayload) =>
+      props.isOpen && props.title == "" ? "red" : "#d9d9d9"};
   width: 100%;
   outline: none;
   height: 30px;
@@ -63,7 +75,8 @@ export const MarkdownViewWrap = styled.div`
   padding: 3%;
   background-color: ${BasicColor3};
   border: none;
-  ${(props) => (props.isOpen && props.detailContent == "" ? "red" : "#d9d9d9")};
+  ${(props: Ipayload) =>
+    props.isOpen && props.detailContent == "" ? "red" : "#d9d9d9"};
   color: #666;
   width: 94%;
   height: 20rem;
@@ -97,7 +110,7 @@ export const subButton = styled.button`
 export const EditTextareaForm = styled.div`
   width: 100%;
   border: 1px solid
-    ${(props) =>
+    ${(props: Ipayload) =>
       props.isOpen && props.detailContent == "" ? "red" : "#d9d9d9"};
   margin-bottom: 5%;
 `;
