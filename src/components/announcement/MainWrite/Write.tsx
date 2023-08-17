@@ -14,9 +14,6 @@ import {
   isOpenAtom,
 } from "@/store/WriteAtom";
 import { useRecoilState } from "recoil";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import remarkGfm from "remark-gfm";
-import breaks from "remark-breaks";
 import { useRouter } from "next/router";
 
 const Write = () => {
@@ -140,17 +137,7 @@ const Write = () => {
                 onChange={handleDetailContentChange}
               ></S.mainTextarea>
             ) : (
-              <S.PreviewMarkdown>
-                <ReactMarkdown
-                  components={{
-                    ul: ({ ...props }) => <div>{props.children}</div>,
-                  }}
-                  children={
-                    detailContent ? detailContent : "표시할 내용이 없습니다."
-                  }
-                  remarkPlugins={[remarkGfm, breaks]}
-                />
-              </S.PreviewMarkdown>
+              <S.PreviewMarkdown></S.PreviewMarkdown>
             )}
           </S.MarkdownViewWrap>
         </S.EditTextareaForm>
