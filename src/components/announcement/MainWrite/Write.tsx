@@ -14,9 +14,6 @@ import {
   isOpenAtom,
 } from "@/store/WriteAtom";
 import { useRecoilState } from "recoil";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import remarkGfm from "remark-gfm";
-import breaks from "remark-breaks";
 import { useRouter } from "next/router";
 
 const Write = () => {
@@ -121,6 +118,23 @@ const Write = () => {
               value={detailContent}
               onChange={handleDetailContentChange}
             ></S.mainTextarea>
+            <CKEditor
+              editor={ClassicEditor}
+              data="<p>Hello from CKEditor 5!</p>"
+              onReady={(editor) => {
+                console.log("Editor is ready to use!", editor);
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                console.log({ event, editor, data });
+              }}
+              onBlur={(event, editor) => {
+                console.log("Blur.", editor);
+              }}
+              onFocus={(event, editor) => {
+                console.log("Focus.", editor);
+              }}
+            />
           </S.MarkdownViewWrap>
         </S.EditTextareaForm>
         {isOpen && detailContent == "" && (
