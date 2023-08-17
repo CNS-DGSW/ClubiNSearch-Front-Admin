@@ -1,21 +1,11 @@
 import styled from "styled-components";
+import { Ipayload } from "../Ipaylod";
 
 const BasicColor1 = "#394050";
 const BasicColor2 = "#1556F7";
 const BasicColor3 = "#F9FAFB";
 const BasicColor4 = "#666666";
 const BasicColor5 = "#D9D9D9";
-
-type Ipayload = {
-  clubName?: string;
-  title?: string;
-  position?: string;
-  employmentType?: string;
-  detailContent?: string;
-  startDate?: string;
-  endDate?: string;
-  isOpen: boolean;
-};
 
 export const mainContainer = styled.div`
   margin-top: 5%;
