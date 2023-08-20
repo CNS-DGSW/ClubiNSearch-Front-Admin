@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://52.78.246.108:8080/",
+  baseURL: "https://api.dgswcns.co.kr/",
 });
 
 export default API;
