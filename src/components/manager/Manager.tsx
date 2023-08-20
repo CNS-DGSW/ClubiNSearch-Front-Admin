@@ -40,7 +40,7 @@ const Manager = () => {
   };
 
   useDidMountEffect(() => {
-    if (!isSignInRecoilState) {
+    if (isSignInRecoilState) {
       alert("로그인 해주세요!");
       router.push("/");
     }
